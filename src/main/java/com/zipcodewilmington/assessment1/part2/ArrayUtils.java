@@ -30,17 +30,11 @@ public class ArrayUtils {
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
-        int valuesToRemove = getNumberOfOccurrences(objectArray, objectToRemove);
-        Object[] valuesRemoved = new Object[objectArray.length - valuesToRemove];
-        for (int i = 0; i < objectArray.length; i ++) {
-            if (objectArray[i] != objectToRemove) {
-                Object objectToCopy = objectArray[i];
-                for (int j = 0; j < objectArray.length; j++) {
-                    objectArray[j] = objectToCopy;
-                }
-            }
-        }
-        return valuesRemoved;
+        ArrayList<Object> arrList = new ArrayList<>(Arrays.asList(objectArray));
+        arrList.remove(objectToRemove);
+        Object[] valueRemoved = new Object[arrList.size()];
+        valueRemoved = arrList.toArray(valueRemoved);
+        return valueRemoved;
     }
 
     /**

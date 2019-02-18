@@ -32,6 +32,7 @@ public class PetOwner {
             arrList.add(pet);
             pets = arrList.toArray(pets);
         } else {
+            pets = new Pet[1];
             pets[0] = pet;
         }
 }
