@@ -3,6 +3,8 @@ package com.zipcodewilmington.assessment1.part2;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by leon on 2/16/18.
@@ -30,21 +32,38 @@ public class ArrayUtils {
      * @return an array with identical content excluding the specified `objectToRemove`
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
-    public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
-        ArrayList<Object> objects = new ArrayList<>();
-        objects.remove(objectToRemove);
-        Object[] objectRemoved = objects.toArray();
-        return objectRemoved;
-    }
+//    public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
+//        ArrayList<Object> objects = new ArrayList<Object>(Arrays.asList(objectArray));
+//        for (int i = 0; i < objects.size(); i++) {
+//            if (objects.get(i).equals(objectToRemove)) {
+//                objects.remove(i);
+//            }
+//        }
+//        Object[] objectRemoved = new Object[objects.size()];
+//        objectRemoved = objects.toArray(objectRemoved);
+//        return objectRemoved;
+//    }
 
     /**
      * @param objectArray an array of any type of Object
      * @return the most frequently occurring object in the array
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
-    public static Object getMostCommon(Object[] objectArray) {
-        return null;
-    }
+//    public static Object getMostCommon(Object[] objectArray) {
+//        Map<Object, Integer> objectFrequencies = new HashMap<>();
+//        for (int i = 0; i < objectArray.length; i++) {
+//            if (objectFrequencies.containsKey(objectArray[i])) {
+//                objectFrequencies.put(objectArray[i], objectFrequencies.get(objectArray[i]) + 1);
+//            } else {
+//                objectFrequencies.put(objectArray[i], 1);
+//            }
+//        }
+//        for (Map.Entry<Object, Integer> entry = 0; entry < objectFrequencies.entrySet().size(); entry++) {
+//            int maxValue =
+//            if (entry.getValue() > )
+//        }
+//        return null;
+//    }
 
 
     /**
