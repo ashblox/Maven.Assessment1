@@ -30,9 +30,13 @@ public class ArrayUtils {
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
     public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
-        ArrayList<Object> arrList = new ArrayList<>(Arrays.asList(objectArray));
-        arrList.remove(objectToRemove);
-        Object[] valueRemoved = new Object[arrList.size()];
+        ArrayList<Object> arrList = new ArrayList<>();
+        for (int i = 0; i < objectArray.length; i++) {
+            if (objectArray[i] != objectToRemove) {
+                arrList.add(objectArray[i]);
+            }
+        }
+        Integer[] valueRemoved = new Integer[arrList.size()];
         valueRemoved = arrList.toArray(valueRemoved);
         return valueRemoved;
     }
@@ -45,17 +49,26 @@ public class ArrayUtils {
     public static Object getMostCommon(Object[] objectArray) {
         Map<Object, Integer> frequencies = new HashMap<>();
         for (int i = 0; i < objectArray.length; i++) {
-            frequencies.put(objectArray[i], getNumberOfOccurrences(objectArray, objectArray[i]));
-        }
-        Map.Entry<Object, Integer> entry = frequencies.entrySet().iterator().next();
-        Integer mostFrequent = entry.getValue();
-        Object mostCommon = null;
-        for (Map.Entry<Object, Integer> current: frequencies.entrySet()) {
-            if (entry.getValue() > mostFrequent) {
-                mostCommon = entry.getKey();
+            Object key = objectArray[i];
+            if (frequencies.containsValue(key)) {
+                Integer freq = frequencies.get(key);
+                freq ++;
+                frequencies.put(key, freq);
+            } else {
+                frequencies.put(key, 1);
             }
         }
-        return mostCommon;
+
+        Integer maxCount = 0;
+        Object mostfrequent = null;
+
+        for (Map.Entry<Object, Integer> entry: frequencies.entrySet()) {
+            if (maxCount < entry.getValue()) {
+                mostfrequent = entry.getKey();
+                maxCount = entry.getValue();
+            }
+        }
+        return mostfrequent;
     }
 
 
