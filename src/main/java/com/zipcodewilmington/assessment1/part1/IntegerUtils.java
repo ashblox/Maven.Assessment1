@@ -12,7 +12,7 @@ public class IntegerUtils {
      */
     public static Integer getSumOfN(Integer n) {
         Integer sum = 0;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i <= n; i++) {
             sum += i;
         }
         return sum;
@@ -24,7 +24,7 @@ public class IntegerUtils {
      */
     public static Integer getProductOfN(Integer n) {
         Integer product = 1;
-        for (int i = 1; i < n; i++) {
+        for (int i = 1; i <= n; i++) {
             product = product * i;
         }
         return product;
