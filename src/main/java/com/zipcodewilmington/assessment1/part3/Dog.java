@@ -8,8 +8,6 @@ public class Dog extends Pet {
      * @param name name of this Dog
      * @param age age of this dog
      */
-    public String name;
-    public int age;
 
     public Dog(String name, Integer age) {
         super(name, age);
@@ -18,6 +16,7 @@ public class Dog extends Pet {
     /**
      * @param age age of this dog
      */
+
     public Dog(Integer age) {
         super(age);
         super.name = "Dog name";

@@ -22,33 +22,33 @@ public class ArrayUtilsTest {
         Assert.assertEquals(expected, actual);
     }
 
-//    @Test
-//    public void removeValueTest1() {
-//        // Given
-//        Integer valueToRemove = 7;
-//        Integer[] expected = {1, 2, 8, 4, 5, 0, 9, 8};
-//        Integer[] inputArray = {1, 2, 7, 8, 4, 5, 7, 0, 9, 8, 7};
-//
-//        // When
-//        Integer[] actual = (Integer[]) ArrayUtils.removeValue(inputArray, valueToRemove);
-//
-//        // Then
-//        UnitTestingUtils.assertArrayEquality(expected, actual);
-//    }
+    @Test
+    public void removeValueTest1() {
+        // Given
+        Integer valueToRemove = 7;
+        Integer[] expected = {1, 2, 8, 4, 5, 0, 9, 8};
+        Integer[] inputArray = {1, 2, 7, 8, 4, 5, 7, 0, 9, 8, 7};
+
+        // When
+        Integer[] actual = (Integer[]) ArrayUtils.removeValue(inputArray, valueToRemove);
+
+        // Then
+        UnitTestingUtils.assertArrayEquality(expected, actual);
+    }
 
 
-//    @Test
-//    public void getMostCommonTest() {
-//        // Given
-//        Integer expected = 7;
-//        Integer[] inputArray = {1, 2, 7, 8, 4, 5, 7, 0, 9, 8, 7};
-//
-//        // When
-//        Integer actual = (Integer) ArrayUtils.getMostCommon(inputArray);
-//
-//        // Then
-//        Assert.assertEquals(expected, actual);
-//    }
+    @Test
+    public void getMostCommonTest() {
+        // Given
+        Integer expected = 7;
+        Integer[] inputArray = {1, 2, 7, 8, 4, 5, 7, 0, 9, 8, 7};
+
+        // When
+        Integer actual = (Integer) ArrayUtils.getMostCommon(inputArray);
+
+        // Then
+        Assert.assertEquals(expected, actual);
+    }
 
     @Test
     public void getLeastCommonTest() {

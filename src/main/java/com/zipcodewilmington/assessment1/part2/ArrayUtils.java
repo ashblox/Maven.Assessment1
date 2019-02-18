@@ -1,10 +1,7 @@
 package com.zipcodewilmington.assessment1.part2;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by leon on 2/16/18.
@@ -32,38 +29,40 @@ public class ArrayUtils {
      * @return an array with identical content excluding the specified `objectToRemove`
      * Given an array of objects, name `objectArray`, and an object `objectToRemove`, return an array of objects with identical contents excluding `objectToRemove`
      */
-//    public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
-//        ArrayList<Object> objects = new ArrayList<Object>(Arrays.asList(objectArray));
-//        for (int i = 0; i < objects.size(); i++) {
-//            if (objects.get(i).equals(objectToRemove)) {
-//                objects.remove(i);
-//            }
-//        }
-//        Object[] objectRemoved = new Object[objects.size()];
-//        objectRemoved = objects.toArray(objectRemoved);
-//        return objectRemoved;
-//    }
+    public static Object[] removeValue(Object[] objectArray, Object objectToRemove) {
+        int valuesToRemove = getNumberOfOccurrences(objectArray, objectToRemove);
+        Object[] valuesRemoved = new Object[objectArray.length - valuesToRemove];
+        for (int i = 0; i < objectArray.length; i ++) {
+            if (objectArray[i] != objectToRemove) {
+                Object objectToCopy = objectArray[i];
+                for (int j = 0; j < objectArray.length; j++) {
+                    objectArray[j] = objectToCopy;
+                }
+            }
+        }
+        return valuesRemoved;
+    }
 
     /**
      * @param objectArray an array of any type of Object
      * @return the most frequently occurring object in the array
      * given an array of objects, named `objectArray` return the most frequently occuring object in the array
      */
-//    public static Object getMostCommon(Object[] objectArray) {
-//        Map<Object, Integer> objectFrequencies = new HashMap<>();
-//        for (int i = 0; i < objectArray.length; i++) {
-//            if (objectFrequencies.containsKey(objectArray[i])) {
-//                objectFrequencies.put(objectArray[i], objectFrequencies.get(objectArray[i]) + 1);
-//            } else {
-//                objectFrequencies.put(objectArray[i], 1);
-//            }
-//        }
-//        for (Map.Entry<Object, Integer> entry = 0; entry < objectFrequencies.entrySet().size(); entry++) {
-//            int maxValue =
-//            if (entry.getValue() > )
-//        }
-//        return null;
-//    }
+    public static Object getMostCommon(Object[] objectArray) {
+        Map<Object, Integer> frequencies = new HashMap<>();
+        for (int i = 0; i < objectArray.length; i++) {
+            frequencies.put(objectArray[i], getNumberOfOccurrences(objectArray, objectArray[i]));
+        }
+        Map.Entry<Object, Integer> entry = frequencies.entrySet().iterator().next();
+        Integer mostFrequent = entry.getValue();
+        Object mostCommon = null;
+        for (Map.Entry<Object, Integer> current: frequencies.entrySet()) {
+            if (entry.getValue() > mostFrequent) {
+                mostCommon = entry.getKey();
+            }
+        }
+        return mostCommon;
+    }
 
 
     /**
@@ -82,6 +81,14 @@ public class ArrayUtils {
      * given two arrays `objectArray` and `objectArrayToAdd`, return an array containing all elements in `objectArray` and `objectArrayToAdd`
      */
     public static Object[] mergeArrays(Object[] objectArray, Object[] objectArrayToAdd) {
-        return null;
+        ArrayList<Object> arrList = new ArrayList<Object>();
+        for (int i = 0; i < objectArray.length; i++) {
+            arrList.add(objectArray[i]);
+        }
+        for (int j = 0; j < objectArrayToAdd.length; j++) {
+            arrList.add(objectArrayToAdd[j]);
+        }
+        Object[] mergedArrays = arrList.toArray();
+        return mergedArrays;
     }
 }

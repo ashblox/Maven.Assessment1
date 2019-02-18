@@ -18,23 +18,29 @@ public class PetOwner {
 
     public PetOwner(String name, Pet... pets) {
         this.name = name;
-        this.pets = pets;
+        if (pets.length != 0) {
+            this.pets = Arrays.copyOf(pets, pets.length);
+        }
     }
 
     /**
      * @param pet pet to be added to the composite collection of Pets
      */
     public void addPet(Pet pet) {
-        ArrayList<Pet> arrList = new ArrayList<Pet>(Arrays.asList(pets));
-        arrList.add(pet);
-        pets = arrList.toArray(pets);
+        if (pets != null) {
+            ArrayList<Pet> arrList = new ArrayList<>(Arrays.asList(pets));
+            arrList.add(pet);
+            pets = arrList.toArray(pets);
+        } else {
+            pets[0] = pet;
+        }
 }
 
     /**
      * @param pet pet to be removed from the composite collection Pets
      */
     public void removePet(Pet pet) {
-        ArrayList<Pet> arrList = new ArrayList<Pet>(Arrays.asList(pets));
+        ArrayList<Pet> arrList = new ArrayList<>(Arrays.asList(pets));
         arrList.remove(pet);
         pets = arrList.toArray(pets);
     }
